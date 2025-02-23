@@ -1,9 +1,9 @@
-import React from 'react'
-
-export default function page() {
+import Button from "./components/button"
+export default function Home() {
   return (
-    <div>
-      112TaiChi
-    </div>
+    <>
+      <div>Hello TaiChi</div>
+      <Button />
+    </>
   )
 }

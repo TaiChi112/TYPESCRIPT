@@ -1,0 +1,55 @@
+/* src/app/styles/Home.module.css */
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.form {
+  margin-bottom: 2rem;
+}
+
+.input {
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #0070f3;
+  color: white;
+  cursor: pointer;
+}
+
+.todoList {
+  list-style: none;
+  padding: 0;
+}
+
+.todoItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.todoText {
+  flex: 1;
+  margin-left: 0.5rem;
+}
+
+.deleteButton {
+  margin-left: 0.5rem;
+  background-color: #e53e3e;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}

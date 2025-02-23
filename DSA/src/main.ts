@@ -68,4 +68,5 @@ function main(): Number {
     stack.display();
     return 0;
 }
+
 main();
