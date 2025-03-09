@@ -1,10 +1,10 @@
-import React from 'react'
+import React from "react";
 
 export default function Some() {
   return (
     <>
       <h1>Form Some</h1>
-      <form >
+      <form>
         <input type="text" />
         <br />
         <input type="text" />
@@ -12,5 +12,5 @@ export default function Some() {
         <button>Submit</button>
       </form>
     </>
-  )
+  );
 }

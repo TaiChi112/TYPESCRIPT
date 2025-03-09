@@ -1,12 +1,13 @@
 export default function ProfileLayout({
-    children,
+  children,
 }: {
-    children: React.ReactNode
+  children: React.ReactNode;
 }) {
-    return <>
-        <header>something</header>
-        <section>{children}</section>
-        <footer>Footer in layout profile</footer>
+  return (
+    <>
+      <header>something</header>
+      <section>{children}</section>
+      <footer>Footer in layout profile</footer>
     </>
-
+  );
 }

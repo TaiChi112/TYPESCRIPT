@@ -42,7 +42,8 @@ export default function Home() {
           <ul>
             {data.items.map((item) => (
               <li key={item.id} className="text-blue-500">
-                <strong>{item.name}</strong> - {item.description} (${item.price})
+                <strong>{item.name}</strong> - {item.description} (${item.price}
+                )
               </li>
             ))}
           </ul>
