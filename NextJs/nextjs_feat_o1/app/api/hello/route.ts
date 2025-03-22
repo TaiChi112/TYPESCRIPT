@@ -7,7 +7,7 @@ export async function GET() {
     try {
         const users = await prisma.user.findMany();
         return NextResponse.json({ users });
-    } catch (error: any) {
+    } catch (error: unknown) {
         return NextResponse.json({
             er: "Error fetching users", error
         })
@@ -24,7 +24,7 @@ export async function POST(req: Request) {
             }
         })
         return NextResponse.json({ new_user });
-    } catch (error: any) {
+    } catch (error:unknown) {
         return NextResponse.json({
             er: "Error creating user", error
         })
@@ -40,7 +40,7 @@ export async function PUT(req: Request) {
             data: { name, email }
         })
         return NextResponse.json({ updated_user });
-    } catch (error: any) {
+    } catch (error: unknown) {
         return NextResponse.json({
             er: "Error updating user", error
         })
@@ -53,7 +53,7 @@ export async function DELETE(req: Request) {
             where: { id }
         })
         return NextResponse.json({ deleted_user });
-    } catch (error: any) {
+    } catch (error: unknown) {
         return NextResponse.json({
             er: "Error deleting user", error
         })
