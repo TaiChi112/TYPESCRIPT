@@ -5,14 +5,16 @@ import { useRouter} from 'next/navigation';
 import { useState } from 'react';
 
 const uxuiList = [
+  { name: 'Home', id: '/' },
+  { name: 'Default', id: 'default' },
   { name: 'UXUI 1', id: 'ux_ui_app1' },
   { name: 'UXUI 2', id: 'ux_ui_app2' },
-  { name: 'Default', id: 'default' },
+  
 ];
 
 export default function Navbar() {
   const router = useRouter();
-  const [selected, setSelected] = useState('ux_ui_app1');
+  const [selected, setSelected] = useState('/');
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedId = e.target.value;
