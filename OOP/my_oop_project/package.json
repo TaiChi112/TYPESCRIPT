@@ -1,0 +1,20 @@
+{
+  "name": "my_oop_project",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.0.3",
+    "jest": "^30.0.2",
+    "ts-jest": "^29.4.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.8.3"
+  },
+  "scripts": {
+    "dev": "bun run src/app.ts",
+    "test": "bun test"
+  }
+}
