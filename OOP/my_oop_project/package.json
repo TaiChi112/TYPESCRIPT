@@ -14,7 +14,7 @@
     "typescript": "^5.8.3"
   },
   "scripts": {
-    "dev": "bun run src/app.ts",
+    "dev": "bun run src/main.ts",
     "test": "bun test"
   }
 }
