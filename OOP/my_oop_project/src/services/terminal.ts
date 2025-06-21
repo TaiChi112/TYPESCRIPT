@@ -9,7 +9,7 @@ const terminal = (): void => {
         console.log("3. Show Browser Info");
         console.log("4. Show Food Info");
         console.log("5. Show Animal Info");
-        console.log("6. Exit");
+        console.log("0. Exit");
         choice = prompt("Enter your choice: ") || "0";
 
         switch (choice) {
