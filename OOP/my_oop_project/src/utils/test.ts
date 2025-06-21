@@ -1,6 +1,5 @@
 import { User } from "../models/User";
 import { Account } from "../models/Account"
-import { space } from "../utils/tools";
 import { Browser } from "../models/Browser";
 import { Animal } from "../models/Animal";
 import { Food } from "../models/Food";
