@@ -1,0 +1,1 @@
+- User -> create -> Browser -> create -> Youtube -> create -> Video
