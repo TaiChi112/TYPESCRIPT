@@ -25,7 +25,7 @@ export class Browser {
         this.url = newUrl;
     }
 
-    showInfo(): string {
+    show_info_browser(): string {
         return `Browser Name: ${this.browser_name}, Version: ${this.version}, Current URL: ${this.url}`;
     }
 }
