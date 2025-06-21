@@ -1,4 +1,4 @@
-import type { IPage } from "../interface/IPage";
+import type { IPage } from "./interface/IPage";
 import { PageErrorType } from "../../enum/Youtube/page";
 import { type IPageError } from "../../interfaces/Youtube/page";
 import { ok, err, type Result } from "../../types/Youtube/result";
