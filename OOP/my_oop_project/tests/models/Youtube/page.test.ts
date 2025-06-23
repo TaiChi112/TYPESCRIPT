@@ -1,4 +1,3 @@
-// src/__tests__/Page.test.ts
 import { Page } from '../../../src/models/Youtube/Page';
 import { PageErrorType } from '../../../src/enum/Youtube/page';
 describe('Page Class', () => {
