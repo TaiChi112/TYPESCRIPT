@@ -1,11 +1,16 @@
 import express from 'express';
 
 const app = express();
-const PORT = process.env.PORT ?? 3000;
+const PORT = process.env.PORT ?? 8080;
 
+const data: { [key: string]: any } = {
+    name: 'John Doe',
+    age: 30,
+    occupation: 'Software Developer'
+};
 app.get('/', (req, res) => {
-    res.send('Hello, World!');
-    res.json({ message: 'Hello, World!' });
+    res.json(data);
+    console.log('Data sent:', data);
 });
 
 app.listen(PORT, () => {
