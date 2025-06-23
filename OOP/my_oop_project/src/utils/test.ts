@@ -1,8 +1,8 @@
-import { User } from "../models/User";
-import { Account } from "../models/Account"
-import { Browser } from "../models/Browser";
-import { Animal } from "../models/Animal";
-import { Food } from "../models/Food";
+import { User } from "../models/Others/User";
+import { Account } from "../models/Others/Account"
+import { Browser } from "../models/Others/Browser";
+import { Animal } from "../models/Others/Animal";
+import { Food } from "../models/Others/Food";
 
 const test_user = (): void => {
     const user1 = new User(1, "Alice");
