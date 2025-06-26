@@ -44,13 +44,16 @@ A modern TypeScript application using Bun runtime, Express.js, and PostgreSQL wi
 ```
 ├── src/
 │   └── index.ts          # Main application entry point
-├── scripts/
-│   └── init-db/          # Database initialization scripts
-│       └── 01-init.sql   # Initial database schema
+├── db/
+│   └── migrations/       # Flyway database migration scripts
+│       ├── V1__create_users_table.sql      # Users table migration
+│       └── V2__create_products_table.sql   # Products table migration
 ├── docker-compose.yml    # Docker services configuration
 ├── Dockerfile           # Application container definition
 ├── .env.example         # Environment variables template
 ├── .dockerignore        # Docker build ignore patterns
+├── .gitignore          # Git ignore patterns
+├── tsconfig.json       # TypeScript configuration
 └── package.json         # Project dependencies and scripts
 ```
 
@@ -68,8 +71,9 @@ A modern TypeScript application using Bun runtime, Express.js, and PostgreSQL wi
 - `bun run docker:logs` - View service logs
 
 ### Database Scripts
-- `bun run db:migrate` - Run database migrations
+- `bun run db:migrate` - Run database migrations manually
 - `bun run db:seed` - Seed database with initial data
+- `bun run db:status` - Check migration status
 
 ## 🐳 Docker Services
 
@@ -78,6 +82,12 @@ A modern TypeScript application using Bun runtime, Express.js, and PostgreSQL wi
 - **Port:** `5432` (configurable via `POSTGRES_PORT`)
 - **Data persistence:** Named volume `postgres_data`
 - **Health checks:** Enabled with pg_isready
+
+### Flyway Migration Service
+- **Image:** `flyway/flyway:11-alpine`
+- **Purpose:** Automated database schema migrations
+- **Migration files:** Located in `db/migrations/`
+- **Execution:** Runs automatically after PostgreSQL is healthy
 
 ### Backend Application
 - **Runtime:** Bun
@@ -118,15 +128,63 @@ The Docker setup supports both development and production modes:
 ## 📊 Database
 
 The PostgreSQL service includes:
-- Automatic initialization scripts
+- **Flyway migrations:** Automated schema management with versioned migrations
 - Health checks for service dependencies
 - Persistent data storage
 - Development-friendly configuration
 
-### Initial Schema
-The database is automatically initialized with:
-- Users table with proper indexing
-- Sample data for development
+### Database Migrations
+The database schema is managed through Flyway migrations:
+- **V1__create_users_table.sql** - Users table with authentication fields
+- **V2__create_products_table.sql** - Products table with e-commerce fields
+- Migrations run automatically when containers start
+- Versioned and repeatable migration support
+
+### Migration Workflow
+1. PostgreSQL container starts and becomes healthy
+2. Flyway migration service runs all pending migrations
+3. Backend application starts after successful migrations
+4. Database is ready with the latest schema
+
+## 🗄️ Database Migrations
+
+### Creating New Migrations
+
+1. **Create a new migration file:**
+   ```bash
+   # Follow Flyway naming convention: V<version>__<description>.sql
+   touch db/migrations/V3__add_categories_table.sql
+   ```
+
+2. **Write your migration:**
+   ```sql
+   -- V3__add_categories_table.sql
+   CREATE TABLE categories (
+       id SERIAL PRIMARY KEY,
+       name VARCHAR(100) NOT NULL,
+       description TEXT,
+       created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+   );
+   
+   -- Add foreign key to products table
+   ALTER TABLE products 
+   ADD CONSTRAINT fk_products_category 
+   FOREIGN KEY (category_id) REFERENCES categories(id);
+   ```
+
+3. **Restart services to apply migrations:**
+   ```bash
+   bun run docker:down
+   bun run docker:up
+   ```
+
+### Migration Best Practices
+
+- **Sequential versioning:** Use V1, V2, V3, etc.
+- **Descriptive names:** Use clear, descriptive migration names
+- **Rollback strategy:** Consider how to undo changes if needed
+- **Test migrations:** Test on development data before production
+- **Backup data:** Always backup before running migrations in production
 
 ## 🔍 Monitoring
 
@@ -140,18 +198,5 @@ The database is automatically initialized with:
 1. **Never commit `.env` files** - Use `.env.example` as a template
 2. **Change default passwords** - Set strong passwords in production
 3. **Secure your secrets** - Generate unique JWT secrets and API keys
-4. **Review permissions** - Ensure proper file and directory permissionssql
-
-To install dependencies:
-
-```bash
-bun install
-```
-
-To run:
-
-```bash
-bun run index.ts
-```
-
-This project was created using `bun init` in bun v1.2.11. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+4. **Review permissions** - Ensure proper file and directory permissions
+5. **Migration safety** - Always backup data before running migrations in production
