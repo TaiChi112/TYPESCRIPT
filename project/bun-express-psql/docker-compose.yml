@@ -50,7 +50,7 @@ services:
     environment:
       NODE_ENV: ${NODE_ENV:-development}
       DATABASE_URL: postgres://${POSTGRES_USER:-bunexpress}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-bunexpress}
-      PORT: 3000
+      PORT: 8080
     volumes:
       - .:/app
       - /app/node_modules
