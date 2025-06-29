@@ -1,6 +1,6 @@
-import terminal from "../services/terminal";
+import Mermaid from '../services/mermaid';
 const App = (): number => {
-    terminal();
+    Mermaid();
     return 0;
 }
 export default App;
