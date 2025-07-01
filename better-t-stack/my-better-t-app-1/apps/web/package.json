@@ -1,0 +1,42 @@
+{
+  "name": "web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 3001",
+    "build": "vite build && tsc",
+    "serve": "vite preview",
+    "test": "vitest run",
+    "generate-pwa-assets": "pwa-assets-generator",
+    "tauri": "tauri",
+    "desktop:dev": "tauri dev",
+    "desktop:build": "tauri build"
+  },
+  "dependencies": {
+    "@orpc/client": "^1.5.0",
+    "@orpc/server": "^1.5.0",
+    "@orpc/tanstack-query": "^1.5.0",
+    "@tailwindcss/vite": "^4.0.6",
+    "@tanstack/router-plugin": "^1.109.2",
+    "@tanstack/solid-form": "^1.9.0",
+    "@tanstack/solid-query": "^5.75.0",
+    "@tanstack/solid-router": "^1.110.0",
+    "@tanstack/solid-router-devtools": "^1.109.2",
+    "better-auth": "^1.2.10",
+    "lucide-solid": "^0.507.0",
+    "sharp": "^0.34.2",
+    "solid-js": "^1.9.4",
+    "tailwindcss": "^4.0.6",
+    "vite-plugin-pwa": "^0.21.2",
+    "zod": "^3.25.16"
+  },
+  "devDependencies": {
+    "@tanstack/solid-query-devtools": "^5.75.0",
+    "@tauri-apps/cli": "^2.4.0",
+    "@vite-pwa/assets-generator": "^1.0.0",
+    "sharp-ico": "^0.1.5",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.11",
+    "vite-plugin-solid": "^2.11.2"
+  }
+}
