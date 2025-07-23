@@ -4,27 +4,27 @@
 classDiagram
     class  IHuman{
         <<interface>>
-        +wake():void
-        +eat():void
-        +sleep():void
+        +wake() void
+        +eat() void
+        +sleep() void
     }
     class  Student{
-        +study():void
+        +study() void
     }
     class  Teacher{
-        +teach():void
+        +teach() void
     }
     class Human{
         <<abstract>>
-        +create_human():IHuman
-        +live():void
-        +die():void
+        +create_human()IHuman
+        +live() void
+        +die() void
     }
     class HumanStudent{
-        +create_human():IHuman
+        +create_human()IHuman
     }
     class HumanTeacher{
-        +create_human():IHuman
+        +create_human()IHuman
     }
     IHuman <|-- Student:implements
     IHuman <|-- Teacher:implements
@@ -37,10 +37,10 @@ classDiagram
 classDiagram
     class  IPizza{
         <<interface>>
-        +prepare():void
-        +bake():void
-        +cut():void
-        +box():void
+        +prepare()void
+        +bake()void
+        +cut()void
+        +box()void
     }
     class Bacon{
 
@@ -53,18 +53,18 @@ classDiagram
     }
     class Pizza{
         <<abstract>>
-        +create_pizza():IPizza
-        +cook():void
-        +eat():void
+        +create_pizza()IPizza
+        +cook()void
+        +eat()void
     }
     class PizzaBacon{
-        +create_pizza():IPizza
+        +create_pizza()IPizza
     }
     class PizzaTuna{
-        +create_pizza():IPizza
+        +create_pizza()IPizza
     }
     class PizzaGrilledPorkNeck{
-        +create_pizza():IPizza
+        +create_pizza()IPizza
     }
 
     IPizza <|-- Bacon:implements
@@ -80,7 +80,7 @@ classDiagram
 classDiagram
     class ITransport{
         <<interface>>
-        +deliver():void
+        +deliver()void
     }
     class Truck{
 
@@ -88,22 +88,22 @@ classDiagram
     class Ship{
 
     }
-    class airplane{
+    class Airplane{
 
     }
     class Transport{
         <<abstract>>
-        +create_transport():ITransport
-        +transport():void
+        +create_transport()ITransport
+        +transport()void
     }
     class TransportTruck{
-        +create_transport():ITransport
+        +create_transport()ITransport
     }
     class TransportShip{
-        +create_transport():ITransport
+        +create_transport()ITransport
     }
     class TransportAirplane{
-        +create_transport():ITransport
+        +create_transport()ITransport
     }
     ITransport <|-- Truck:implements
     ITransport <|-- Ship:implements
