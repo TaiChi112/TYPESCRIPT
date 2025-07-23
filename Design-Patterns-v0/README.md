@@ -88,8 +88,6 @@ classDiagram
     class Ship{
 
     }
-    class airplane{
-    }
     class Transport{
         <<abstract>>
         +create_transport():ITransport
