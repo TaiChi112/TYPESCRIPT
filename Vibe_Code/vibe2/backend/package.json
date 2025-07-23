@@ -1,0 +1,22 @@
+{
+  "name": "backend",
+  "module": "src/index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "bun --hot src/index.ts",
+    "start": "bun src/index.ts",
+    "build": "bun build src/index.ts --outdir=dist --target=bun",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "pg": "^8.11.3"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/pg": "^8.10.9"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}

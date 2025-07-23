@@ -46,7 +46,7 @@ services:
         condition: service_completed_successfully
     restart: unless-stopped
     ports:
-      - "${API_PORT:-3000}:3000"
+      - "${API_PORT:-4000}:4000"
     environment:
       NODE_ENV: ${NODE_ENV:-development}
       DATABASE_URL: postgres://${POSTGRES_USER:-bunexpress}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-bunexpress}

@@ -88,9 +88,12 @@ classDiagram
     class Ship{
 
     }
+<<<<<<< HEAD
     class Airplane{
 
     }
+=======
+>>>>>>> e552acfa0c4868686ed0175cb36e017f798fa00e
     class Transport{
         <<abstract>>
         +create_transport()ITransport

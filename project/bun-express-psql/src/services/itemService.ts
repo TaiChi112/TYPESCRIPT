@@ -1,4 +1,3 @@
-// src/services/itemService.ts
 import { Pool } from 'pg';
 import type { QueryResult } from 'pg';
 import { type Item } from '../types';

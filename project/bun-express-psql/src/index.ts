@@ -1,5 +1,7 @@
+import { person1 } from './test/class/person';
 import express from 'express';
 import type { Item } from './types';
+import cors from 'cors';
 import {
     createItem,
     getAllItems,
@@ -12,6 +14,16 @@ const app = express();
 const port = process.env.PORT ?? 8080;
 
 app.use(express.json());
+app.use(cors({
+    origin: '*',
+}));
+
+app.get("/nothing", (req, res) => {
+    res.status(200).json({
+        person1,
+        message: "This route does nothing."
+    });
+});
 
 app.post('/items', async (req, res) => {
     const { name, description } = req.body as Partial<Item>;

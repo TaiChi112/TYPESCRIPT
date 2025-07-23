@@ -1,0 +1,53 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Install Dependencies",
+			"type": "shell",
+			"command": "cd backend && bun install && cd ../frontend && bun install",
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Start Backend",
+			"type": "shell",
+			"command": "cd backend && bun dev",
+			"group": "build",
+			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "Start Frontend",
+			"type": "shell",
+			"command": "cd frontend && bun dev",
+			"group": "build",
+			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "Database Setup",
+			"type": "shell",
+			"command": "cd backend && bun run db:generate && bun run db:migrate",
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Seed Database",
+			"type": "shell",
+			"command": "cd backend && bun run db:seed",
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Start Both (Dev)",
+			"type": "shell",
+			"command": "bun run dev",
+			"group": "build",
+			"isBackground": true,
+			"problemMatcher": []
+		}
+	]
+}

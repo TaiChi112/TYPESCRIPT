@@ -1,0 +1,40 @@
+{
+  "name": "proposal-software-directory",
+  "version": "1.0.0",
+  "description": "A comprehensive website for collecting and managing proposal software data",
+  "scripts": {
+    "dev": "concurrently \"cd backend && bun dev\" \"cd frontend && bun dev\" --names \"backend,frontend\" --prefix-colors \"red,blue\"",
+    "build": "cd backend && bun run build && cd ../frontend && bun run build",
+    "install:all": "cd backend && bun install && cd ../frontend && bun install",
+    "install:frontend": "cd frontend && bun install",
+    "install:backend": "cd backend && bun install",
+    "db:up": "docker compose up -d postgres",
+    "db:down": "docker compose down",
+    "db:logs": "docker compose logs -f postgres",
+    "db:setup": "cd backend && bun run db:generate && bun run db:migrate",
+    "db:seed": "cd backend && bun run db:seed",
+    "db:studio": "cd backend && bun run db:studio",
+    "db:reset": "cd backend && bunx prisma migrate reset --force",
+    "db:fresh": "bun run db:reset && bun run db:seed",
+    "pgadmin:up": "docker compose up -d pgadmin",
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down",
+    "docker:logs": "docker compose logs -f",
+    "docker:clean": "docker compose down -v && docker system prune -f",
+    "start": "concurrently \"cd backend && bun start\" \"cd frontend && bun start\"",
+    "type-check": "cd frontend && bun run type-check && cd ../backend && tsc --noEmit",
+    "type-check:frontend": "cd frontend && bun run type-check",
+    "type-check:backend": "cd backend && tsc --noEmit",
+    "lint": "cd frontend && bun run lint",
+    "format": "cd frontend && bunx prettier --write . && cd ../backend && bunx prettier --write .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf frontend/.next frontend/node_modules backend/dist backend/node_modules node_modules"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "workspaces": [
+    "frontend",
+    "backend"
+  ]
+}
