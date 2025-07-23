@@ -89,7 +89,6 @@ classDiagram
 
     }
     class airplane{
-
     }
     class Transport{
         <<abstract>>
