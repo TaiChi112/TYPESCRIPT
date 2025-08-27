@@ -1,0 +1,14 @@
+node_modules
+bun.lockb
+npm-debug.log
+Dockerfile
+dockerfile
+.dockerignore
+.git
+.gitignore
+.env
+dist
+build
+.next
+.vscode
+.idea

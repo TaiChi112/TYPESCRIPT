@@ -1,0 +1,77 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: bunexpress-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-bunexpress}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}  
+      POSTGRES_DB: ${POSTGRES_DB:-bunexpress}
+      POSTGRES_INITDB_ARGS: "--auth-host=scram-sha-256"
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - bunexpress-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-bunexpress} -d ${POSTGRES_DB:-bunexpress}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+  
+  migration:
+    image: flyway/flyway:11-alpine
+    container_name: bunexpress-migrations
+    command: -url=jdbc:postgresql://postgres:5432/${POSTGRES_DB:-bunexpress} -user=${POSTGRES_USER:-bunexpress} -password=${POSTGRES_PASSWORD} migrate
+    volumes:
+      - ./db/migrations:/flyway/sql
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - bunexpress-network
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    container_name: bunexpress-api
+    depends_on:
+      postgres:
+        condition: service_healthy
+      migration:
+        condition: service_completed_successfully
+    restart: unless-stopped
+    ports:
+      - "${API_PORT:-4000}:4000"
+    environment:
+      NODE_ENV: ${NODE_ENV:-development}
+      DATABASE_URL: postgres://${POSTGRES_USER:-bunexpress}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-bunexpress}
+      PORT: 8080
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - bunexpress_logs:/app/logs
+    networks:
+      - bunexpress-network
+    command: ["bun", "run", "dev"]
+    develop:
+      watch:
+        - action: sync
+          path: ./src
+          target: /app/src
+        - action: rebuild
+          path: ./package.json
+
+volumes:
+  postgres_data:
+    driver: local
+  bunexpress_logs:
+    driver: local
+
+networks:
+  bunexpress-network:
+    driver: bridge

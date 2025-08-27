@@ -4,7 +4,9 @@ import { Car2, Person2 } from "../interface/interface";
 
 // This normalize declaration variable
 
+
 let car1: string = "Fiat";
+
 
 // let's do it create object
 

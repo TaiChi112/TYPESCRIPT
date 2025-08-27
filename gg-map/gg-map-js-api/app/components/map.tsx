@@ -84,12 +84,21 @@ const Map: React.FC = () => {
       });
     };
 
+
     const script = document.createElement("script");
     script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyA2HZHq7JxcYuvaq-KNGo4jn26mqYLPKYs&callback=initMap`; // แทนที่ YOUR_API_KEY ด้วย API Key ของคุณ
     script.async = true;
     script.defer = true;
     window.initMap = initMap;
     document.head.appendChild(script);
+
+        const script = document.createElement('script');
+        script.src = `https://maps.googleapis.com/maps/api/js?key=`; // แทนที่ YOUR_API_KEY ด้วย API Key ของคุณ
+        script.async = true;
+        script.defer = true;
+        window.initMap = initMap;
+        document.head.appendChild(script);
+
 
     return () => {
       document.head.removeChild(script);

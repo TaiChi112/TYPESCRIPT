@@ -1,0 +1,11 @@
+.dockerignore
+.git/
+node_modules/
+npm-debug.log
+.DS_Store
+dist/  # For frontend builds
+build/ # For frontend builds
+.env
+.env.*
+*.pem
+*.key

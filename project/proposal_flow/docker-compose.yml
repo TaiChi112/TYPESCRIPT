@@ -1,0 +1,62 @@
+# services:
+#   backend:
+#     build:
+#       context: ./backend
+#     ports:
+#       - "8080:8080"
+#     volumes:
+#       - ./backend:/app
+#       - /app/node_modules
+#     environment:
+#       - NODE_ENV=development
+#     command: bun --watch src/index.ts
+  
+#   frontend:
+#     build:
+#       context: ./frontend
+#     ports:
+#       - "3000:3000"
+#     volumes:
+#       - ./frontend:/app
+#       - /app/node_modules
+#     environment:
+#       - NEXT_PUBLIC_API_URL=http://localhost:8080
+#       - NODE_ENV=development
+#     command: bun run dev
+#     depends_on:
+#       - backend
+
+services:
+  postgres_db:
+    image: postgres:16-alpine
+    container_name: my-postgres
+    environment:
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_DB: my_app_db
+      # POSTGRES_USER: your_username
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    restart: always
+
+  backend_app:
+    build:
+      context: ./backend # *** เปลี่ยนตรงนี้! บอกว่า context คือโฟลเดอร์ 'backend' ***
+      dockerfile: Dockerfile # Dockerfile ชื่อ 'Dockerfile' จะถูกหาใน context นั้น
+    container_name: my-backend
+    ports:
+      - "3000:3000"
+    environment:
+      DB_USER: postgres
+      DB_HOST: postgres_db
+      DB_NAME: my_app_db
+      DB_PASSWORD: mysecretpassword
+      DB_PORT: 5432
+      APP_PORT: 3000
+    depends_on:
+      - postgres_db
+    restart: always
+
+volumes:
+  pgdata:

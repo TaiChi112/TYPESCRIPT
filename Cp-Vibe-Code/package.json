@@ -1,0 +1,43 @@
+{
+  "name": "cp-vibe-code",
+  "version": "1.0.0",
+  "description": "Full-stack web application with Next.js 15 and Bun backend",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend",
+    "shared"
+  ],
+  "scripts": {
+    "dev": "concurrently \"cd backend && bun run dev\" \"cd frontend && bun run dev\"",
+    "build": "bun run build:shared && bun run build:backend && bun run build:frontend",
+    "build:frontend": "cd frontend && bun run build",
+    "build:backend": "cd backend && bun run build",
+    "build:shared": "cd shared && bun run build",
+    "start": "concurrently \"cd backend && bun run start\" \"cd frontend && bun run start\"",
+    "lint": "bun run lint:frontend && bun run lint:backend",
+    "lint:frontend": "cd frontend && bun run lint",
+    "lint:backend": "cd backend && bun run lint",
+    "type-check": "bun run type-check:frontend && bun run type-check:backend && bun run type-check:shared",
+    "type-check:frontend": "cd frontend && bun run type-check",
+    "type-check:backend": "cd backend && bun run type-check",
+    "type-check:shared": "cd shared && bun run type-check",
+    "db:migrate": "cd backend && bun run db:migrate",
+    "db:seed": "cd backend && bun run db:seed",
+    "db:studio": "cd backend && bun run db:studio",
+    "db:reset": "cd backend && bun run db:reset",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "install:all": "bun install && cd backend && bun install && cd ../frontend && bun install && cd ../shared && bun install",
+    "clean": "rm -rf */node_modules */dist */.next"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "bun": ">=1.0.0"
+  }
+}

@@ -1,0 +1,37 @@
+# FROM oven/bun:latest AS base
+
+# WORKDIR /app
+
+# COPY package.json ./
+
+# RUN bun install --frozen-lockfile
+
+# COPY . .
+
+# EXPOSE 8080
+
+# CMD ["bun", "run", "src/index.ts"]
+
+# ใช้ Official Bun Image เป็น Base
+FROM oven/bun:1.1.17
+
+# ตั้งค่า Working Directory ภายใน Container
+WORKDIR /app
+
+# Copy package.json และ bun.lockb (หรือ package-lock.json/yarn.lock) เพื่อติดตั้ง Dependencies
+COPY package.json bun.lockb ./
+
+# ติดตั้ง Dependencies
+RUN bun install --frozen-lockfile
+
+# Copy โค้ดทั้งหมดของโปรเจกต์
+COPY . .
+
+# Compile TypeScript code
+RUN bun tsc
+
+# Expose Port ที่แอปพลิเคชันจะรัน
+EXPOSE 3000
+
+# กำหนดคำสั่งเริ่มต้นเมื่อ Container รัน (ใช้ bun run ไฟล์ที่ compile แล้ว)
+CMD ["bun", "run", "dev"]
