@@ -1,8 +1,8 @@
 // src/app/components/TodoList.tsx
 "use client";
 
-import { Todo } from '../models/Todo';
-import { updateTodo, deleteTodo } from '../utils/api';
+import { Todo } from "../models/Todo";
+import { updateTodo, deleteTodo } from "../utils/api";
 
 interface TodoListProps {
   todos: Todo[];
@@ -12,7 +12,10 @@ interface TodoListProps {
 
 const TodoList: React.FC<TodoListProps> = ({ todos, onUpdate, onDelete }) => {
   const handleToggle = async (todo: Todo) => {
-    const updatedTodo = await updateTodo({ ...todo, completed: !todo.completed });
+    const updatedTodo = await updateTodo({
+      ...todo,
+      completed: !todo.completed,
+    });
     onUpdate(updatedTodo);
   };
 

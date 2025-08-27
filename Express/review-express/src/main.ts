@@ -1,7 +1,6 @@
-import express, { Request, Response } from 'express';
-import { PrismaClient } from '@prisma/client';
-import {userRoute, bookRoute} from './route';
-
+import express, { Request, Response } from "express";
+import { PrismaClient } from "@prisma/client";
+import { userRoute, bookRoute } from "./route";
 
 const server = express();
 const port = 8088;
@@ -11,17 +10,16 @@ server.use(express.json());
 server.use(userRoute);
 server.use(bookRoute);
 
-server.get('/', (req: Request, res: Response) => {
-    res.json({
-        msg: "Server running success",
-        status: "ok",
-    })
+server.get("/", (req: Request, res: Response) => {
+  res.json({
+    msg: "Server running success",
+    status: "ok",
+  });
 });
 
 server.listen(port, () => {
-    console.log(`Server running http://localhost/${port}`);
+  console.log(`Server running http://localhost/${port}`);
 });
-
 
 // const Ebooks = [
 //     {

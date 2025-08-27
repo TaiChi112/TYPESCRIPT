@@ -1,12 +1,12 @@
 // src/app/api/todos/route.ts
 
-import { NextRequest, NextResponse } from 'next/server';
-import { Todo } from '../../models/Todo';
+import { NextRequest, NextResponse } from "next/server";
+import { Todo } from "../../models/Todo";
 
 // Mock data for demonstration purposes
 let todos: Todo[] = [
-  { id: 1, text: 'Learn TypeScript', completed: false },
-  { id: 2, text: 'Learn Next.js', completed: false },
+  { id: 1, text: "Learn TypeScript", completed: false },
+  { id: 2, text: "Learn Next.js", completed: false },
 ];
 
 export async function GET(req: NextRequest) {
@@ -29,7 +29,7 @@ export async function PUT(req: NextRequest) {
   const todoIndex = todos.findIndex((todo) => todo.id === id);
 
   if (todoIndex === -1) {
-    return NextResponse.json({ message: 'Todo not found' }, { status: 404 });
+    return NextResponse.json({ message: "Todo not found" }, { status: 404 });
   }
 
   todos[todoIndex] = { id, text, completed };
@@ -39,5 +39,5 @@ export async function PUT(req: NextRequest) {
 export async function DELETE(req: NextRequest) {
   const { id } = await req.json();
   todos = todos.filter((todo) => todo.id !== id);
-  return NextResponse.json({ message: 'Todo deleted' }, { status: 204 });
+  return NextResponse.json({ message: "Todo deleted" }, { status: 204 });
 }

@@ -2,17 +2,17 @@
 
 "use client";
 
-import { useState, FormEvent } from 'react';
-import { createTodo } from '../utils/api';
-import { Todo } from '../models/Todo';
-import styles from '../styles/Home.module.css';
+import { useState, FormEvent } from "react";
+import { createTodo } from "../utils/api";
+import { Todo } from "../models/Todo";
+import styles from "../styles/Home.module.css";
 
 interface TodoFormProps {
   onAdd: (todo: Todo) => void;
 }
 
 const TodoForm: React.FC<TodoFormProps> = ({ onAdd }) => {
-  const [text, setText] = useState('');
+  const [text, setText] = useState("");
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -20,7 +20,7 @@ const TodoForm: React.FC<TodoFormProps> = ({ onAdd }) => {
 
     const newTodo = await createTodo({ text, completed: false });
     onAdd(newTodo);
-    setText('');
+    setText("");
   };
 
   return (
@@ -32,10 +32,11 @@ const TodoForm: React.FC<TodoFormProps> = ({ onAdd }) => {
         placeholder="Add a new todo"
         className={styles.input}
       />
-      <button type="submit" className={styles.button}>Add</button>
+      <button type="submit" className={styles.button}>
+        Add
+      </button>
     </form>
   );
 };
 
 export default TodoForm;
- 

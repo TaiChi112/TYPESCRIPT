@@ -1,6 +1,11 @@
 class Person1 {
-    name = "TaiChi"
-    age = 20
+  
+  name: string = "TaiChi";
+  age: number = 20;
 
+  constructor(name: string, age: number) {
+    this.name = name;
+    this.age = age;
+  }
 }
-export { Person1 }
+export { Person1 };

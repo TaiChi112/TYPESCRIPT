@@ -1,4 +1,5 @@
 **Many construct type in TypeScript**
+
 - Class
 - Interface
 - Type Alias
@@ -35,15 +36,15 @@
 - Type Inference in Type Compatibility
 
 **summarize**
-| TypeScript Construct   | คำอธิบาย                                                         |
+| TypeScript Construct | คำอธิบาย |
 | ---------------------- | -------------------------------------------------------------- |
-| `class`                | ใช้สร้างออบเจ็กต์ มี method, properties, constructor                |
-| `interface`            | กำหนดโครงสร้างของออบเจ็กต์                                         |
-| `type`                 | กำหนด alias ให้ประเภทข้อมูล ใช้กับ primitive, union, intersection ได้ |
-| `enum`                 | กำหนดค่าคงที่แบบกลุ่ม                                                |
-| `abstract class`       | คลาสแม่ที่ต้องสืบทอด                                                |
-| `tuple`                | อาร์เรย์ที่กำหนดประเภทของแต่ละตำแหน่ง                                  |
-| `union & intersection` | ใช้รวม (`                                                       | `) และเลือก (`&`) ประเภทข้อมูล |
-| `mapped type`          | ใช้แปลงประเภท เช่น ReadOnly, Required                            |
-| `conditional type`     | กำหนดประเภทตามเงื่อนไข เช่น `T extends U ? X : Y`                  |
-| `generic type`         | ใช้สร้างประเภทที่ยืดหยุ่น ใช้ `<T>` สำหรับพารามิเตอร์ประเภท                |
+| `class` | ใช้สร้างออบเจ็กต์ มี method, properties, constructor |
+| `interface` | กำหนดโครงสร้างของออบเจ็กต์ |
+| `type` | กำหนด alias ให้ประเภทข้อมูล ใช้กับ primitive, union, intersection ได้ |
+| `enum` | กำหนดค่าคงที่แบบกลุ่ม |
+| `abstract class` | คลาสแม่ที่ต้องสืบทอด |
+| `tuple` | อาร์เรย์ที่กำหนดประเภทของแต่ละตำแหน่ง |
+| `union & intersection` | ใช้รวม (`                                                      |`) และเลือก (`&`) ประเภทข้อมูล |
+| `mapped type` | ใช้แปลงประเภท เช่น ReadOnly, Required |
+| `conditional type` | กำหนดประเภทตามเงื่อนไข เช่น `T extends U ? X : Y` |
+| `generic type` | ใช้สร้างประเภทที่ยืดหยุ่น ใช้ `<T>` สำหรับพารามิเตอร์ประเภท |
