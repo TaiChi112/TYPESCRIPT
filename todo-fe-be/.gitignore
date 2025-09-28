@@ -1,0 +1,21 @@
+# Root level gitignore
+node_modules/
+*.log
+.env
+.env.local
+
+# Docker volumes
+postgres_data/
+pgadmin_data/
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
