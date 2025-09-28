@@ -1,15 +1,15 @@
-import {add} from "./main";
+import { add } from "./main";
 
-describe('add function', () => {
-  it('should return the sum of two numbers', () => {
+describe("add function", () => {
+  it("should return the sum of two numbers", () => {
     expect(add(1, 2)).toBe(3);
   });
 
-  it('should handle negative numbers', () => {
+  it("should handle negative numbers", () => {
     expect(add(-1, -2)).toBe(-3);
   });
 
-  it('should handle zero', () => {
+  it("should handle zero", () => {
     expect(add(0, 0)).toBe(0);
   });
 });

@@ -2,12 +2,12 @@
 
 "use client";
 
-import { useState, useEffect } from 'react';
-import { Todo } from './models/Todo';
-import { fetchTodos } from './utils/api';
-import TodoForm from './components/TodoForm';
-import TodoList from './components/TodoList';
-import styles from './styles/Home.module.css';
+import { useState, useEffect } from "react";
+import { Todo } from "./models/Todo";
+import { fetchTodos } from "./utils/api";
+import TodoForm from "./components/TodoForm";
+import TodoList from "./components/TodoList";
+import styles from "./styles/Home.module.css";
 
 const Home: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -25,7 +25,9 @@ const Home: React.FC = () => {
   };
 
   const handleUpdate = (updatedTodo: Todo) => {
-    setTodos((prev) => prev.map((todo) => (todo.id === updatedTodo.id ? updatedTodo : todo)));
+    setTodos((prev) =>
+      prev.map((todo) => (todo.id === updatedTodo.id ? updatedTodo : todo)),
+    );
   };
 
   const handleDelete = (id: number) => {

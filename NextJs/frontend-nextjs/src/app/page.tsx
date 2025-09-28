@@ -5,12 +5,19 @@ import { Footer } from "./components/common/Footer";
 export default function Home() {
   return (
     <>
-        <main style={{ position: "relative", display: "flex", justifyContent: "center", alignItems: "center" }}>
-          <Header />
-          <Background />
-        </main>
-        <Section />
-        <Footer />
+      <main
+        style={{
+          position: "relative",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Header />
+        <Background />
+      </main>
+      <Section />
+      <Footer />
     </>
   );
 }

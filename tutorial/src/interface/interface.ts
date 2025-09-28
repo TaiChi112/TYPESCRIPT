@@ -1,19 +1,19 @@
 interface Car2 {
-    type:string
-    model:string
-    color:string
+  type: string;
+  model: string;
+  color: string;
 }
 interface Person1 {
-    name:string
-    age:number
+  name: string;
+  age: number;
 }
 interface Person2 {
-    name:string
-    age:number
-    display(name:string,age:number):void
+  name: string;
+  age: number;
+  display(name: string, age: number): void;
 }
 
-export {Car2,Person1,Person2}
+export { Car2, Person1, Person2 };
 // export interface ICreateUser {
 //     username: string
 //     password: string

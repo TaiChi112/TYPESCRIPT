@@ -1,7 +1,6 @@
-export class LinkList{
-    data:number[]
-    constructor(){
-        this.data = []
-    }
-
+export class LinkList {
+  data: number[];
+  constructor() {
+    this.data = [];
+  }
 }
