@@ -1,0 +1,14 @@
+name: ci-placeholder
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+  placeholder:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Info
+        run: echo "CI placeholder — add lint/type-check/test later"
