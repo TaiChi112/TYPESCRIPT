@@ -1,0 +1,7 @@
+# ROUTES.todo (placeholder only)
+- GET /products
+- GET /products/:id
+- POST /cart/checkout (test-mode)
+- POST /auth/sign-in
+- POST /auth/sign-up
+- POST /auth/sign-out

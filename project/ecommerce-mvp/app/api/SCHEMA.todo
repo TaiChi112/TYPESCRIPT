@@ -1,0 +1,3 @@
+# SCHEMA.todo (placeholder only)
+- Product, User, Order, OrderItem (Prisma models to be generated later)
+- Validation rules (outline)
