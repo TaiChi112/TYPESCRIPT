@@ -3,8 +3,8 @@
 # - Ensure Docker Engine runs inside WSL distro (e.g., Ubuntu).
 # - Use Linux paths for volumes (e.g., /home/username/...).
 # - Add services later: postgres, backend (elysia), frontend (nextjs).
-version: "3.9"
-services:
+# version: "3.9"
+# services:
   # postgres:
   #   image: postgres:16
   #   environment:
