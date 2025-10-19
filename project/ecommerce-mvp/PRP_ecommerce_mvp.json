@@ -1,0 +1,22 @@
+{
+  "allow_inference": true,
+  "product": "MVP E-commerce Web App",
+  "vision": "Buyer can browse, add-to-cart, and checkout in test mode with basic authentication; Admin-lite can view orders and manage stock.",
+  "constraints": [
+    "Monorepo with separate frontend (Next.js) and backend (Elysia) folders",
+    "Docs-first, code later",
+    "No real payments \u2014 sandbox only",
+    "Docker/Compose on WSL (no Docker Desktop)"
+  ],
+  "milestones": [
+    "Phase 1: Scaffold & Docs",
+    "Phase 2: Data & Auth (placeholders)",
+    "Phase 3: Checkout (test-mode) & Admin-lite"
+  ],
+  "deliverables_now": [
+    "Repository structure and empty files",
+    "Documentation outlines",
+    "Task list and acceptance criteria",
+    "CI and deployment notes placeholders"
+  ]
+}
