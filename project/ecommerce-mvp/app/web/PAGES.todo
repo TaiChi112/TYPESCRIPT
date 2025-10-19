@@ -1,0 +1,8 @@
+# PAGES.todo (placeholder only)
+- / (landing)
+- /catalog
+- /product/[id]
+- /cart
+- /checkout
+- /auth/(sign-in|sign-up)
+- /admin (lite)

@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #0a0a0a;
+  color: #e0e0e0;
+}
+
+main {
+  min-height: calc(100vh - 80px);
+}
+
+a:hover {
+  color: #fff !important;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+}
