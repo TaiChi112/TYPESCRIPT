@@ -260,7 +260,7 @@ const getOverallSeverity = (logs: ModerationLogEntry[]): Severity | null => {
   let result: Severity | null = null;
   for (const l of logs) {
     if (l.severity === "error") return "error";
-    if (l.severity === "warning" && result !== "error") result = "warning";
+    if (l.severity === "warning") result = "warning";
     if (l.severity === "info" && !result) result = "info";
   }
   return result;
@@ -409,7 +409,7 @@ const ChainOfResponsibilityDemoPage: React.FC = () => {
               <div>
                 <p className="text-[11px] text-slate-400 mb-1">Body</p>
                 <textarea
-                  className="w-full bg-slate-900/80 border border-white/20 rounded px-2 py-1 text-[11px] min-h-[60px]"
+                  className="w-full bg-slate-900/80 border border-white/20 rounded px-2 py-1 text-[11px] min-h-15"
                   value={body}
                   onChange={(e) => setBody(e.target.value)}
                 />
@@ -524,7 +524,7 @@ const ChainOfResponsibilityDemoPage: React.FC = () => {
           </div>
 
           {/* Logs view */}
-          <div className="bg-black/50 border border-white/10 rounded-2xl p-4 text-[11px] font-mono max-h-[460px] overflow-auto">
+          <div className="bg-black/50 border border-white/10 rounded-2xl p-4 text-[11px] font-mono max-h-115 overflow-auto">
             <div className="flex items-center justify-between mb-2">
               <p className="text-slate-400">Handler logs (ตามลำดับการวิ่งใน chain)</p>
               <button
@@ -537,7 +537,7 @@ const ChainOfResponsibilityDemoPage: React.FC = () => {
             </div>
             {logs.length === 0 && (
               <p className="text-slate-500">
-                ยังไม่มี log — ปรับค่าด้านซ้ายแล้วกด "Run moderation pipeline"
+                ยังไม่มี log — ปรับค่าด้านซ้ายแล้วกด `Run moderation pipeline`
               </p>
             )}
             {logs.length > 0 && (
