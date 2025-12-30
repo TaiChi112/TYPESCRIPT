@@ -38,7 +38,7 @@ const cloneState = (state: DocumentState): DocumentState => ({
 interface ICommand {
   readonly label: string;
   execute(state: DocumentState): DocumentState;
-  undo(state: DocumentState): DocumentState;
+  undo(): DocumentState;
 }
 
 abstract class BaseCommand implements ICommand {
@@ -215,7 +215,7 @@ class CommandManager {
   undo(): DocumentState | null {
     const cmd = this.undoStack.pop();
     if (!cmd) return null;
-    const prevState = (cmd as BaseCommand).undo(this.state);
+    const prevState = cmd.undo();
     this.state = cloneState(prevState);
     this.redoStack.push(cmd);
     return this.getState();
@@ -242,6 +242,10 @@ class CommandManager {
 
   getRedoCount(): number {
     return this.redoStack.length;
+  }
+
+  resetState(newState: DocumentState): void {
+    this.state = cloneState(newState);
   }
 }
 
@@ -288,8 +292,7 @@ const CommandDemoPage: React.FC = () => {
 
   const handleReset = () => {
     manager.clear();
-    const resetState = new CommandManager(initialDoc).getState();
-    (manager as unknown as { state: DocumentState }).state = cloneState(resetState);
+    manager.resetState(initialDoc);
     refreshFromManager();
   };
 
