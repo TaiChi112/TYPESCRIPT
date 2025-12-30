@@ -125,14 +125,46 @@ const AcademicThemeFactory: UIThemeFactory = {
   ),
 };
 
+const TaiChiThemeFactory: UIThemeFactory = {
+  ActionButton: ({ onClick, children, isActive }) => (
+    <button
+      onClick={onClick}
+      className={`${isActive ? "" : " "}`}
+    >
+      [ {children} ]
+    </button>
+  ),
+  Tag: ({ label }) => (
+    <span className={``}>#{label}</span>
+  ),
+  CardWrapper: ({ children }) => (
+    <div className={``}>
+      {children}
+    </div>
+  ),
+  HeroWrapper: ({ title, subtitle, children }) => (
+    <div className={``}>
+      <div className={``} />
+      <div className={``}>
+        <p className={``}>ABSTRACT FACTORY DEMO</p>
+        <h1 className={``}>{title}</h1>
+        <p className={``}>{subtitle}</p>
+        {children}
+      </div>
+    </div>
+  ),
+
+};
+
 // 5) FACTORY REGISTRY + TYPE
 const themeRegistry = {
   minimal: MinimalThemeFactory,
   creative: CreativeThemeFactory,
   academic: AcademicThemeFactory,
+  taichi: TaiChiThemeFactory,
 };
 
-type ThemeKey = keyof typeof themeRegistry; // 'minimal' | 'creative' | 'academic'
+type ThemeKey = keyof typeof themeRegistry; // 'minimal' | 'creative' | 'academic' | 'taichi'
 
 // 6) SAMPLE DOMAIN MODEL (สามารถปรับเองได้)
 interface SampleProject {
@@ -188,6 +220,14 @@ const AbstractFactoryDemoPage: React.FC = () => {
             >
               academic
             </Theme.ActionButton>
+
+            <Theme.ActionButton
+              onClick={() => setCurrentTheme("taichi")}
+              isActive={currentTheme === "taichi"}
+            >
+              taichi
+            </Theme.ActionButton>
+            
           </div>
         </Theme.HeroWrapper>
 
