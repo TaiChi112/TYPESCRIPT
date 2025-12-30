@@ -2289,6 +2289,7 @@ const initialBlogs = [
 type LayoutStyle = 'minimal' | 'creative' | 'academic';
 type UserPersona = 'developer' | 'researcher' | 'student';
 type RenderMode = 'preview' | 'full' | 'compact';
+type DesignPattern = 'Singleton' | 'Prototype' | 'Adapter' | 'Bridge' | 'Composite' | 'Decorator' | 'Flyweight' | 'Chain of Responsibility' | 'Proxy' | 'Command' | 'Facade';
 
 /**
  * ---------------------------------------------------------------------
@@ -2353,7 +2354,7 @@ const CreativeThemeFactory: UIThemeFactory = {
   ),
   SectionWrapper: ({ children }) => <div className="py-6 animate-fadeIn">{children}</div>,
   HeroWrapper: ({ title, subtitle, children }) => (
-    <div className="bg-gradient-to-r from-violet-600 to-indigo-600 p-8 rounded-3xl text-white shadow-2xl mb-12 relative overflow-hidden">
+    <div className="bg-linear-to-r from-violet-600 to-indigo-600 p-8 rounded-3xl text-white shadow-2xl mb-12 relative overflow-hidden">
       <div className="relative z-10">
         <h1 className="text-5xl font-extrabold mb-4 tracking-tight drop-shadow-md">{title}</h1>
         <p className="text-indigo-100 text-lg mb-6 drop-shadow">{subtitle}</p>
@@ -2492,7 +2493,7 @@ const GridLayout: React.FC<SectionProps & { onApplyDecorator?: (itemId: string, 
   <div className="mb-8 animate-fadeIn">
     <div className="flex items-center gap-2 mb-6">
       {Icon && <Icon size={24} className="text-indigo-500" />}
-      <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-purple-500">{title}</h3>
+      <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-linear-to-r from-indigo-500 to-purple-500">{title}</h3>
     </div>
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       {items.map(item => (
@@ -3221,6 +3222,19 @@ export default function PersonalWebsiteUltimate() {
             </button>
           ))}
         </div>
+
+          {/* navigational linking design pattern */}
+        {/* <div className="bg-white/10 backdrop-blur-md p-1 rounded-full border border-white/20 flex gap-1 shadow-lg">
+          {(['Singleton', 'Prototype', 'Adapter', 'Bridge', 'Composite', 'Decorator', 'Flyweight', 'Chain of Responsibility', 'Proxy', 'Command', 'Facade'] as DesignPattern[]).map(p => (
+            <button key={p} onClick={() => handlePersonaChange(p)} className={`px-3 py-1 text-xs rounded-full capitalize transition-all ${persona === p ? 'bg-blue-500 text-white font-bold shadow' : 'text-gray-500 hover:text-gray-300'}`}>
+              {p}
+            </button>
+            <Link key={p} href={`/#${p.toLowerCase().replace(/ /g, '-')}`} className={`px-3 py-1 text-xs rounded-full capitalize transition-all hover:bg-gray-700 hover:text-white`}>
+              {p}
+            </Link>
+          ))}
+        </div> */}
+
       </div>
 
       {/* --- Main Content --- */}
@@ -3555,7 +3569,7 @@ export default function PersonalWebsiteUltimate() {
                   `Flyweight Pattern: Registered new tag "${customTagName}" and created project`
                 );
               }}
-              className="px-4 py-2 bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-lg font-semibold hover:shadow-lg transition-all flex items-center justify-center gap-2 hover:scale-105"
+              className="px-4 py-2 bg-linear-to-r from-pink-500 to-purple-500 text-white rounded-lg font-semibold hover:shadow-lg transition-all flex items-center justify-center gap-2 hover:scale-105"
             >
               <Sparkles size={16} />
               Register New Tag
