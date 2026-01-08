@@ -5,7 +5,7 @@ interface ICard{
     render(): void;
 }
 // สามารถ scale component ได้ง่าย เช่น ICard, INav, IFooter หมายเหตุ: component คือส่วนประกอบต่างๆ ที่อยู่ใน web page
-
+// component^
 class MinimalButton implements IButton{
     render(): void {
         console.log('Now You web style is Rendering Minimal Button');
@@ -68,9 +68,9 @@ const renderComponent = (theme: WebStyle) => {
 
 
 // Usage
-const minimalTheme = new WebMinimalStyle();
+const minimalTheme: WebStyle = new WebMinimalStyle();
 renderComponent(minimalTheme);
-const modernTheme = new WebModernStyle();
+const modernTheme: WebStyle = new WebModernStyle();
 renderComponent(modernTheme);
 
 // ยกตัวอย่างที่ตั้งใจเอาไป apply คือ ผมมี personal website ที่มี content คือ article, blog, docs, project, cv, resume
