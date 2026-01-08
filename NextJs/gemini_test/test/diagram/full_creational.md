@@ -82,7 +82,8 @@ classDiagram
     class IColor { <<interface>> getPrimaryColor() }
     
     %% Concrete Products (Minimal)
-    class MinimalFont { getFontFamily() }
+    class MinimalFont { getFontFamily() 
+    }
     class MinimalColor { getPrimaryColor() 
     }
 
