@@ -5,7 +5,6 @@ interface ICard{
     render(): void;
 }
 // สามารถ scale component ได้ง่าย เช่น ICard, INav, IFooter หมายเหตุ: component คือส่วนประกอบต่างๆ ที่อยู่ใน web page
-// component^
 class MinimalButton implements IButton{
     render(): void {
         console.log('Now You web style is Rendering Minimal Button');
