@@ -28,13 +28,13 @@ class ListFormatter implements ILayoutFormatter {
 }
 
 // รูปแบบ Grid: เน้นแสดงผลแบบแบ่งคอลัมน์ (จำลองด้วย Pipe |)
-class GridFormatter implements ILayoutFormatter {
-    render(articles: Article[]): string {
-        return articles
-            .map(a => `| GRID BOX: ${a.title} |`)
-            .join("  ");
-    }
-}
+// class GridFormatter implements ILayoutFormatter {
+//     render(articles: Article[]): string {
+//         return articles
+//             .map(a => `| GRID BOX: ${a.title} |`)
+//             .join("  ");
+//     }
+// }
 
 /**
  * 3) CREATOR ABSTRACTION
@@ -63,11 +63,11 @@ class ListLayoutFactory extends LayoutFactory {
     }
 }
 
-class GridLayoutFactory extends LayoutFactory {
-    public createFormatter(): ILayoutFormatter {
-        return new GridFormatter();
-    }
-}
+// class GridLayoutFactory extends LayoutFactory {
+//     public createFormatter(): ILayoutFormatter {
+//         return new GridFormatter();
+//     }
+// }
 
 /**
  * ---------------------------------------------------------
@@ -87,6 +87,9 @@ class GridLayoutFactory extends LayoutFactory {
 const myArticles: Article[] = [
     { id: "1", title: "Factory Method", category: "Patterns" },
     { id: "2", title: "TypeScript Tips", category: "TS" },
+    { id: "3", title: "Design Principles", category: "Architecture" },
+    { id: "4", title: "Clean Code", category: "Best Practices" },
+    { id: "5", title: "Refactoring", category: "Techniques" },
 ];
 
 // ลองใช้งาน List Layout
@@ -94,5 +97,5 @@ const listFactory = new ListLayoutFactory();
 listFactory.generateReport(myArticles);
 
 // ลองใช้งาน Grid Layout
-const gridFactory = new GridLayoutFactory();
-gridFactory.generateReport(myArticles);
+// const gridFactory = new GridLayoutFactory();
+// gridFactory.generateReport(myArticles);
