@@ -381,7 +381,7 @@ const CommandDemoPage: React.FC = () => {
             <div>
               <p className="text-[11px] text-slate-400 mb-1">Body</p>
               <textarea
-                className="w-full bg-slate-900/80 border border-white/20 rounded px-2 py-1 text-[11px] min-h-[70px] mb-2"
+                className="w-full bg-slate-900/80 border border-white/20 rounded px-2 py-1 text-[11px] min-h-17.5 mb-2"
                 value={bodyInput}
                 onChange={(e) => setBodyInput(e.target.value)}
               />
@@ -511,7 +511,7 @@ const CommandDemoPage: React.FC = () => {
             </div>
 
             {/* History list */}
-            <div className="bg-black/50 border border-white/10 rounded-2xl p-4 text-[11px] font-mono max-h-[260px] overflow-auto">
+            <div className="bg-black/50 border border-white/10 rounded-2xl p-4 text-[11px] font-mono max-h-65 overflow-auto">
               <div className="flex items-center justify-between mb-2">
                 <p className="text-slate-400">Executed command history</p>
                 <span className="text-slate-500">{history.length} entries</span>
