@@ -3187,7 +3187,7 @@ export default function PersonalWebsiteUltimate() {
         {/* Import Button (Adapter Pattern Demo) */}
         <button 
           onClick={() => setShowImportModal(true)}
-          className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg hover:shadow-xl transition-all flex items-center gap-2 hover:scale-105"
+          className="bg-linear-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg hover:shadow-xl transition-all flex items-center gap-2 hover:scale-105"
         >
           <Upload size={16} />
           Import Data
@@ -3338,7 +3338,7 @@ export default function PersonalWebsiteUltimate() {
                 setBlogs(prev => [adapted, ...prev]);
                 SessionLogger.getInstance().addLog('Proxy Demo: Imported invalid JSON → normalized and accepted');
               }}
-              className="p-4 bg-gradient-to-r from-emerald-500 to-teal-500 text-white rounded-lg hover:shadow-lg transition-all text-left"
+              className="p-4 bg-linear-to-r from-emerald-500 to-teal-500 text-white rounded-lg hover:shadow-lg transition-all text-left"
             >
               <div className="font-bold mb-1">🧪 Import Invalid JSON (Validation)</div>
               <div className="text-xs opacity-90">Missing title auto-filled as `Untitled`</div>
@@ -3356,7 +3356,7 @@ export default function PersonalWebsiteUltimate() {
                 a2.adapt();
                 SessionLogger.getInstance().addLog('Proxy Demo: Second import triggered cache hit (no duplicate added)');
               }}
-              className="p-4 bg-gradient-to-r from-yellow-500 to-orange-500 text-white rounded-lg hover:shadow-lg transition-all text-left flex items-center gap-2"
+              className="p-4 bg-linear-to-r from-yellow-500 to-orange-500 text-white rounded-lg hover:shadow-lg transition-all text-left flex items-center gap-2"
             >
               <Repeat size={16} />
               <div>
@@ -3540,7 +3540,7 @@ export default function PersonalWebsiteUltimate() {
                   `Flyweight Pattern: Created project with ${flyweights.length} shared tags (reused existing flyweights)`
                 );
               }}
-              className="px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-lg font-semibold hover:shadow-lg transition-all flex items-center justify-center gap-2 hover:scale-105"
+              className="px-4 py-2 bg-linear-to-r from-cyan-500 to-blue-500 text-white rounded-lg font-semibold hover:shadow-lg transition-all flex items-center justify-center gap-2 hover:scale-105"
             >
               <Plus size={16} />
               Use Shared Tags
@@ -3649,7 +3649,7 @@ export default function PersonalWebsiteUltimate() {
                 );
                 commandManagerRef.current!.execute(cmd);
               }}
-              className="p-4 bg-gradient-to-r from-pink-500 to-rose-500 text-white rounded-lg hover:shadow-lg transition-all text-left"
+              className="p-4 bg-linear-to-r from-pink-500 to-rose-500 text-white rounded-lg hover:shadow-lg transition-all text-left"
             >
               <div className="font-bold mb-1">▶️ Execute Import (Command)</div>
               <div className="text-xs opacity-90">Runs Adapter+Proxy via Import Command</div>
@@ -3658,7 +3658,7 @@ export default function PersonalWebsiteUltimate() {
             {/* Undo */}
             <button
               onClick={() => commandManagerRef.current!.undo()}
-              className="p-4 bg-gradient-to-r from-gray-700 to-gray-600 text-white rounded-lg hover:shadow-lg transition-all text-left flex items-center gap-2"
+              className="p-4 bg-linear-to-r from-gray-700 to-gray-600 text-white rounded-lg hover:shadow-lg transition-all text-left flex items-center gap-2"
             >
               <Undo2 size={16} />
               <div>
@@ -3670,7 +3670,7 @@ export default function PersonalWebsiteUltimate() {
             {/* Redo */}
             <button
               onClick={() => commandManagerRef.current!.redo()}
-              className="p-4 bg-gradient-to-r from-indigo-500 to-blue-500 text-white rounded-lg hover:shadow-lg transition-all text-left flex items-center gap-2"
+              className="p-4 bg-linear-to-r from-indigo-500 to-blue-500 text-white rounded-lg hover:shadow-lg transition-all text-left flex items-center gap-2"
             >
               <Redo2 size={16} />
               <div>
@@ -3716,7 +3716,7 @@ export default function PersonalWebsiteUltimate() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             <button
               onClick={() => mediatorRef.current?.notify('MediatorDemo', 'open-import')}
-              className="p-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg hover:shadow-lg transition-all text-left"
+              className="p-4 bg-linear-to-r from-purple-500 to-pink-500 text-white rounded-lg hover:shadow-lg transition-all text-left"
             >
               <div className="font-bold mb-1">📦 Open Import (Mediator)</div>
               <div className="text-xs opacity-90">Open modal via mediator</div>
@@ -3733,7 +3733,7 @@ export default function PersonalWebsiteUltimate() {
                 };
                 mediatorRef.current?.notify('MediatorDemo', 'import-json', { json: sample, type: 'project' });
               }}
-              className="p-4 bg-gradient-to-r from-teal-500 to-emerald-500 text-white rounded-lg hover:shadow-lg transition-all text-left"
+              className="p-4 bg-linear-to-r from-teal-500 to-emerald-500 text-white rounded-lg hover:shadow-lg transition-all text-left"
             >
               <div className="font-bold mb-1">⬇️ Import via Mediator</div>
               <div className="text-xs opacity-90">Mediator coordinates Adapter+Proxy and state</div>
@@ -3741,7 +3741,7 @@ export default function PersonalWebsiteUltimate() {
 
             <button
               onClick={() => mediatorRef.current?.notify('MediatorDemo', 'reset-iterator')}
-              className="p-4 bg-gradient-to-r from-indigo-500 to-blue-500 text-white rounded-lg hover:shadow-lg transition-all text-left"
+              className="p-4 bg-linear-to-r from-indigo-500 to-blue-500 text-white rounded-lg hover:shadow-lg transition-all text-left"
             >
               <div className="font-bold mb-1">🔄 Reset Iterator (Mediator)</div>
               <div className="text-xs opacity-90">Resets DFS traversal centrally</div>
@@ -3782,7 +3782,7 @@ export default function PersonalWebsiteUltimate() {
                 mementoHistoryRef.current!.save(m);
                 SessionLogger.getInstance().addLog(`Memento: Saved ${m.getName()} (history=${mementoHistoryRef.current!.size()})`);
               }}
-              className="p-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-white rounded-lg hover:shadow-lg transition-all text-left"
+              className="p-4 bg-linear-to-r from-amber-500 to-yellow-500 text-white rounded-lg hover:shadow-lg transition-all text-left"
             >
               <div className="font-bold mb-1">💾 Save Snapshot</div>
               <div className="text-xs opacity-90">Push current state to history stack</div>
@@ -3820,7 +3820,7 @@ export default function PersonalWebsiteUltimate() {
                   portfolioStateContextRef.current!.transitionToIdle();
                 }
               }}
-              className="p-4 bg-gradient-to-r from-rose-500 to-red-500 text-white rounded-lg hover:shadow-lg transition-all text-left"
+              className="p-4 bg-linear-to-r from-rose-500 to-red-500 text-white rounded-lg hover:shadow-lg transition-all text-left"
             >
               <div className="font-bold mb-1">↩️ Restore Last</div>
               <div className="text-xs opacity-90">Pop and apply last snapshot</div>
@@ -3854,7 +3854,7 @@ export default function PersonalWebsiteUltimate() {
                 setProjects(facade.getProjects());
                 SessionLogger.getInstance().addLog('Memento: Saved snapshot then imported an item (use Restore Last to undo)');
               }}
-              className="p-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-lg hover:shadow-lg transition-all text-left"
+              className="p-4 bg-linear-to-r from-blue-500 to-cyan-500 text-white rounded-lg hover:shadow-lg transition-all text-left"
             >
               <div className="font-bold mb-1">🧪 Save + Quick Import</div>
               <div className="text-xs opacity-90">Snapshot before change, then add an item</div>
@@ -3913,7 +3913,7 @@ export default function PersonalWebsiteUltimate() {
                     })
                   }));
                 }}
-                className="p-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg hover:shadow-lg transition-all text-left"
+                className="p-4 bg-linear-to-r from-blue-500 to-purple-500 text-white rounded-lg hover:shadow-lg transition-all text-left"
               >
                 <div className="font-bold mb-1">➕ Add Decorated Project</div>
                 <div className="text-xs opacity-90">Creates project with Featured + Hot badges</div>
@@ -3937,7 +3937,7 @@ export default function PersonalWebsiteUltimate() {
                   facade.importFromJSON(sampleData, 'project');
                   setProjects(facade.getProjects());
                 }}
-                className="p-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg hover:shadow-lg transition-all text-left"
+                className="p-4 bg-linear-to-r from-purple-500 to-pink-500 text-white rounded-lg hover:shadow-lg transition-all text-left"
               >
                 <div className="font-bold mb-1">📦 Import via Facade</div>
                 <div className="text-xs opacity-90">Uses Adapter + adds to collection</div>
@@ -4070,7 +4070,7 @@ export default function PersonalWebsiteUltimate() {
               <button
                 onClick={handleImportData}
                 disabled={!importJSON.trim()}
-                className="px-6 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg font-semibold hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                className="px-6 py-2 bg-linear-to-r from-purple-500 to-pink-500 text-white rounded-lg font-semibold hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
               >
                 <Upload size={16} />
                 Import via Adapter+Proxy
