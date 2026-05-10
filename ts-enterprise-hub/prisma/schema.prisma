@@ -1,0 +1,38 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum UserRole {
+  STUDENT
+  ALUMNI
+  ADMIN
+}
+
+model Profile {
+  id              String   @id @default(uuid())
+  name            String
+  email           String   @unique
+  role            UserRole
+  
+  // Student-specific fields (nullable for non-students)
+  studentId       String?
+  faculty         String?
+  
+  // Alumni-specific fields (nullable for non-alumni)
+  graduationYear  Int?
+  currentCompany  String?
+  
+  // Timestamps
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@map("profiles")
+}
