@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,                  // เปิด Strict ทั้งหมด (รวมถึง noImplicitAny)
+    "noImplicitAny": true,           // กฎเหล็ก: ห้ามใช้ any เด็ดขาด
+    "strictNullChecks": true,        // บังคับจัดการ null และ undefined
+    "exactOptionalPropertyTypes": true, // ป้องกันการใส่ค่า undefined ใน optional keys
+    "noUncheckedIndexedAccess": true,   // ปลอดภัยเวลาดึงข้อมูลจาก Array/Record
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@core/*": ["src/core/*"],
+      "@domain/*": ["src/domain/*"],
+      "@infra/*": ["src/infrastructure/*"],
+      "@integration/*": ["src/integration/*"]
+    }
+  },
+  "include": ["src/**/*"]
+}
